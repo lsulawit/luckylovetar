@@ -3,38 +3,39 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Lucky is your Stitch, Tar 💙</title>
+  <title>Lucky 💙 Tar</title>
   <style>
     html, body {
       margin: 0;
       padding: 0;
-      background: linear-gradient(to bottom right, #cceeff, #e6f7ff);
-      font-family: 'Comic Sans MS', cursive;
+      background: linear-gradient(135deg, #d0f0ff, #eaf6ff);
+      font-family: 'Segoe UI', sans-serif;
+      color: #003366;
       text-align: center;
-      overflow-x: hidden;
-      min-height: 100vh;
+      overflow: hidden;
     }
 
     h1 {
-      font-size: 2.2em;
-      color: #003366;
-      margin-top: 50px;
-      text-shadow: 1px 1px 2px #fff;
+      font-size: 2.5em;
+      margin-top: 40px;
       padding: 0 20px;
+      text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.6);
     }
 
     p {
       font-size: 1.2em;
-      color: #004466;
-      padding: 0 20px;
-      margin-bottom: 25px;
+      color: #336699;
+      padding: 0 25px;
+      margin-bottom: 20px;
     }
 
-    .stitch {
-      width: 60%;
-      max-width: 300px;
+    img {
+      width: 220px;
+      max-width: 80%;
       animation: float 3s ease-in-out infinite;
-      filter: drop-shadow(0 0 20px #66ccff);
+      margin-bottom: 20px;
+      filter: drop-shadow(0 0 15px #a3eaff);
+      border-radius: 12px;
     }
 
     @keyframes float {
@@ -46,29 +47,28 @@
     .btn {
       font-size: 1.1em;
       padding: 14px 30px;
-      margin: 15px;
+      margin: 10px;
       border: none;
-      border-radius: 20px;
+      border-radius: 30px;
       cursor: pointer;
-      transition: all 0.3s ease;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-      max-width: 80%;
+      transition: 0.3s;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     }
 
     .yes {
-      background: linear-gradient(to right, #66ccff, #3399ff);
+      background: linear-gradient(to right, #4dc9ff, #3b9eff);
       color: white;
     }
 
     .no {
-      background: #f2f2f2;
+      background: #fff0f5;
       color: #444;
       position: relative;
     }
 
     .btn:hover {
       transform: scale(1.08);
-      box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
     }
 
     .heart {
@@ -77,7 +77,7 @@
       height: 20px;
       background: url('https://cdn-icons-png.flaticon.com/512/833/833472.png') no-repeat center/cover;
       animation: fall 6s linear infinite;
-      opacity: 0.6;
+      opacity: 0.5;
       pointer-events: none;
     }
 
@@ -87,45 +87,38 @@
     }
 
     @media (orientation: landscape) {
-      h1 { font-size: 2.6em; }
-      .btn { font-size: 1.3em; }
+      h1 { font-size: 2.8em; }
     }
   </style>
 </head>
 <body>
-  <h1>Tar 💙 Will you accept Lucky as your Stitch?</h1>
-  <p>I may be blue and a little weird, but my heart is all yours 🥺💘</p>
+  <h1>Tar 💙 Will you let Lucky be your Stitch forever?</h1>
+  <p>I may be blue and a little weird... but I’m all yours, forever. 🥺💘</p>
 
-  <img src="https://media.giphy.com/media/fm4WhPMzu9hRK/giphy.gif" class="stitch" alt="Stitch" />
+  <img src="https://media.giphy.com/media/fm4WhPMzu9hRK/giphy.gif" alt="Stitch dancing" />
 
   <div>
     <button class="btn yes" onclick="sayYes()">Yes! You're my Stitch 💖</button>
-    <button class="btn no" id="btnNo" onmouseenter="moveNo()">No 😅</button>
+    <button class="btn no" id="btnNo" onmouseenter="moveNo()">No 😝</button>
   </div>
 
   <script>
     const btnNo = document.getElementById("btnNo");
-    let moveCount = 0;
 
     function sayYes() {
-      alert("Yay! 🥹 From now on, Lucky is officially your Stitch, Tar 💙");
+      alert("YAY! 💙 Tar & Lucky forever~ ✨✨");
     }
 
     function moveNo() {
-      moveCount++;
-      if (moveCount <= 10) {
-        const x = Math.floor(Math.random() * 200) - 100;
-        const y = Math.floor(Math.random() * 200) - 100;
-        btnNo.style.transform = `translate(${x}px, ${y}px)`;
-      } else {
-        btnNo.innerText = "Okay fine... maybe just a little 💔";
-        btnNo.style.cursor = "default";
-        btnNo.onmouseenter = null;
-      }
+      const x = Math.random() * (window.innerWidth - 100);
+      const y = Math.random() * (window.innerHeight - 200);
+      btnNo.style.position = "absolute";
+      btnNo.style.left = `${x}px`;
+      btnNo.style.top = `${y}px`;
     }
 
-    // Falling hearts
-    for (let i = 0; i < 30; i++) {
+    // Falling hearts animation
+    for (let i = 0; i < 35; i++) {
       const heart = document.createElement('div');
       heart.classList.add('heart');
       heart.style.left = Math.random() * 100 + "vw";
