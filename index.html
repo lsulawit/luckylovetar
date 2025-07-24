@@ -8,25 +8,24 @@
     html, body {
       margin: 0;
       padding: 0;
-      background: linear-gradient(135deg, #d0f0ff, #eaf6ff);
-      font-family: 'Segoe UI', sans-serif;
-      color: #003366;
+      background: linear-gradient(to bottom right, #ccf2ff, #e6f9ff);
+      font-family: 'Comic Sans MS', cursive;
       text-align: center;
       overflow: hidden;
     }
 
     h1 {
-      font-size: 2.5em;
-      margin-top: 40px;
+      font-size: 2.4em;
+      margin-top: 50px;
       padding: 0 20px;
-      text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.6);
+      color: #003366;
     }
 
     p {
       font-size: 1.2em;
       color: #336699;
-      padding: 0 25px;
       margin-bottom: 20px;
+      padding: 0 25px;
     }
 
     img {
@@ -47,17 +46,18 @@
     .btn {
       font-size: 1.1em;
       padding: 14px 30px;
-      margin: 10px;
+      margin: 15px;
       border: none;
       border-radius: 30px;
       cursor: pointer;
-      transition: 0.3s;
+      transition: all 0.3s ease;
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     }
 
     .yes {
       background: linear-gradient(to right, #4dc9ff, #3b9eff);
       color: white;
+      transform-origin: center;
     }
 
     .no {
@@ -68,7 +68,6 @@
 
     .btn:hover {
       transform: scale(1.08);
-      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
     }
 
     .heart {
@@ -85,28 +84,26 @@
       0% { transform: translateY(-50px) rotate(0deg); opacity: 1; }
       100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
     }
-
-    @media (orientation: landscape) {
-      h1 { font-size: 2.8em; }
-    }
   </style>
 </head>
 <body>
-  <h1>Tar 💙 Will you let Lucky be your Stitch forever?</h1>
-  <p>I may be blue and a little weird... but I’m all yours, forever. 🥺💘</p>
+  <h1>Tar 💙 Will you let Lucky be your Stitch?</h1>
+  <p>I might be weird... but I'm all yours 💘</p>
 
   <img src="https://media.giphy.com/media/fm4WhPMzu9hRK/giphy.gif" alt="Stitch dancing" />
 
   <div>
-    <button class="btn yes" onclick="sayYes()">Yes! You're my Stitch 💖</button>
+    <button class="btn yes" id="btnYes" onclick="sayYes()">Yes! You're my Stitch 💖</button>
     <button class="btn no" id="btnNo" onmouseenter="moveNo()">No 😝</button>
   </div>
 
   <script>
     const btnNo = document.getElementById("btnNo");
+    const btnYes = document.getElementById("btnYes");
+    let yesScale = 1;
 
     function sayYes() {
-      alert("YAY! 💙 Tar & Lucky forever~ ✨✨");
+      alert("YAY!! 💍 Tar & Lucky forever~");
     }
 
     function moveNo() {
@@ -115,10 +112,14 @@
       btnNo.style.position = "absolute";
       btnNo.style.left = `${x}px`;
       btnNo.style.top = `${y}px`;
+
+      // ปรับปุ่ม Yes ให้ใหญ่ขึ้นทีละนิด
+      yesScale += 0.05;
+      btnYes.style.transform = `scale(${yesScale})`;
     }
 
-    // Falling hearts animation
-    for (let i = 0; i < 35; i++) {
+    // ใส่หัวใจลอยลงพื้น
+    for (let i = 0; i < 30; i++) {
       const heart = document.createElement('div');
       heart.classList.add('heart');
       heart.style.left = Math.random() * 100 + "vw";
