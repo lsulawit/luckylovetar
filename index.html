@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Lucky is your Stitch, Tar 💙</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to bottom right, #cceeff, #e6f7ff);
+      font-family: 'Comic Sans MS', cursive;
+      text-align: center;
+      overflow-x: hidden;
+    }
+
+    h1 {
+      font-size: 2.8em;
+      color: #004466;
+      margin-top: 60px;
+      text-shadow: 1px 1px 2px #fff;
+    }
+
+    p {
+      font-size: 1.3em;
+      color: #336699;
+      margin-bottom: 30px;
+      padding: 0 20px;
+    }
+
+    .stitch {
+      width: 250px;
+      animation: float 3s ease-in-out infinite;
+      filter: drop-shadow(0 0 20px #66ccff);
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-15px); }
+      100% { transform: translateY(0); }
+    }
+
+    .btn {
+      font-size: 1.2em;
+      padding: 15px 40px;
+      margin: 20px;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    .yes {
+      background: linear-gradient(to right, #66ccff, #3399ff);
+      color: white;
+    }
+
+    .no {
+      background: #eeeeee;
+      color: #333;
+    }
+
+    .btn:hover {
+      transform: scale(1.1);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    }
+
+    .heart {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: url('https://cdn-icons-png.flaticon.com/512/833/833472.png') no-repeat center/cover;
+      animation: fall 6s linear infinite;
+      opacity: 0.6;
+    }
+
+    @keyframes fall {
+      0% { transform: translateY(-50px) rotate(0deg); opacity: 1; }
+      100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+  <h1>Tar 💙 Will You Accept Lucky As Your Stitch?</h1>
+  <p>I may be weird, blue, and a little crazy…  
+  But my heart is all yours forever, Tar 💫</p>
+
+  <img src="https://media.giphy.com/media/fm4WhPMzu9hRK/giphy.gif" class="stitch" alt="Stitch" />
+
+  <div>
+    <button class="btn yes" onclick="sayYes()">Yes! You're my Stitch, Lucky 💖</button>
+    <button class="btn no" onmouseenter="moveNo(this)">No (hehe not really 😝)</button>
+  </div>
+
+  <script>
+    function sayYes() {
+      alert("Yayyy! 💙 From now on, Lucky is your official Stitch, Tar 💍");
+    }
+
+    function moveNo(btn) {
+      const x = Math.floor(Math.random() * 300) - 150;
+      const y = Math.floor(Math.random() * 300) - 150;
+      btn.style.position = "relative";
+      btn.style.left = `${x}px`;
+      btn.style.top = `${y}px`;
+    }
+
+    // Falling hearts
+    for (let i = 0; i < 25; i++) {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.animationDelay = Math.random() * 5 + "s";
+      document.body.appendChild(heart);
+    }
+  </script>
+</body>
+</html>
