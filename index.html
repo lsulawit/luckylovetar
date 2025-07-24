@@ -94,7 +94,7 @@
 
   <div>
     <button class="btn yes" id="btnYes" onclick="sayYes()">Yes! You're my Stitch 💖</button>
-    <button class="btn no" id="btnNo" onmouseenter="moveNo()">No 😝</button>
+    <button class="btn no" id="btnNo" onclick="moveNo()">No 😝</button>
   </div>
 
   <script>
@@ -107,18 +107,18 @@
     }
 
     function moveNo() {
-      const x = Math.random() * (window.innerWidth - 100);
+      const x = Math.random() * (window.innerWidth - 120);
       const y = Math.random() * (window.innerHeight - 200);
       btnNo.style.position = "absolute";
       btnNo.style.left = `${x}px`;
       btnNo.style.top = `${y}px`;
 
-      // ปรับปุ่ม Yes ให้ใหญ่ขึ้นทีละนิด
+      // Make Yes button grow every time No is tapped
       yesScale += 0.05;
       btnYes.style.transform = `scale(${yesScale})`;
     }
 
-    // ใส่หัวใจลอยลงพื้น
+    // Falling hearts
     for (let i = 0; i < 30; i++) {
       const heart = document.createElement('div');
       heart.classList.add('heart');
